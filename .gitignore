@@ -1,0 +1,5 @@
+homekit-hcsr501
+HC-SR501
+.vscode
+*.code-workspace
+.DS_Store

@@ -1,0 +1,13 @@
+[Unit]
+Description=HomeKit HC-SR501-exporter service
+After=network.target hcsr501-exporter.service
+
+[Service]
+User=pi
+Group=pi
+WorkingDirectory=/home/pi/dev/homekit-hcsr501
+ExecStart=/home/pi/dev/homekit-hcsr501/homekit-hcsr501
+ExecReload=/bin/kill -HUP $MAINPID
+
+[Install]
+WantedBy=multi-user.target
