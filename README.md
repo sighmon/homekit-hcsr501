@@ -7,7 +7,7 @@ An [Apple HomeKit](https://developer.apple.com/homekit/) accessory for the [HC-S
 ## Dependencies
 
 * [**Go**](http://golang.org/doc/install) - this accessory is written in Go
-* [**HomeControl**](https://github.com/brutella/hc) - to expose climate readings from the Enviro+ as an Apple HomeKit accessory
+* [**HomeControl**](https://github.com/brutella/hc) - to expose sensor readings as an Apple HomeKit accessory
 
 ## Installation
 
@@ -18,7 +18,6 @@ Install this on a Raspberry Pi, or test it on macOS.
 1. Install [Go](http://golang.org/doc/install) >= 1.14 ([useful Gist](https://gist.github.com/pcgeek86/0206d688e6760fe4504ba405024e887c) for Raspberry Pi)
 1. Clone this project: `git clone https://github.com/sighmon/homekit-hcsr501` and then `cd homekit-hcsr501`
 1. Install the Go dependencies: `go get`
-1. Install and run the Climate Sensor exporter [climate-sensor](https://github.com/ACMILabs/climate-sensor)
 
 ### Build
 
