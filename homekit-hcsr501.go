@@ -10,7 +10,7 @@ import (
   "flag"
   "fmt"
   "log"
-  "os"
+  "math/rand"
   "time"
 )
 
@@ -59,25 +59,37 @@ func main() {
     // Open and map memory to access gpio, check for errors
     if err := rpio.Open(); err != nil {
       fmt.Println(err)
-      os.Exit(1)
     }
 
-    // Unmap gpio memory when done
-    defer rpio.Close()
+    if !developmentMode {
+      // Unmap gpio memory when done
+      defer rpio.Close()
 
-    // Set pin to input mode
-    pin.Input()
+      // Set pin to input mode
+      pin.Input()
 
-    for {
-      res := pin.Read()
-      if res > 0 {
-        fmt.Println("Motion detected!")
-        motion.MotionDetected.SetValue(true)
-      } else {
-        motion.MotionDetected.SetValue(false)
+      for {
+        res := pin.Read()
+        if res > 0 {
+          fmt.Println("Motion detected!")
+          motion.MotionDetected.SetValue(true)
+        } else {
+          motion.MotionDetected.SetValue(false)
+        }
+        time.Sleep(time.Second / 10)
       }
-      time.Sleep(time.Second / 10)
+    } else {
+      for {
+        rand.Seed(time.Now().UnixNano())
+        randomBool := rand.Intn(2) == 1
+        if randomBool {
+          fmt.Println("Motion detected!")
+        }
+        motion.MotionDetected.SetValue(randomBool)
+        time.Sleep(time.Second)
+      }
     }
+
   }()
 
   hc.OnTermination(func() {
