@@ -51,7 +51,7 @@ If you uninstall this accessory from your Apple Home, you'll also need to delete
 
 ### macOS
 
-1. Delete the data in the folder created: `homekit-hcsr501/SCD-41/` 
+1. Delete the data in the folder created: `homekit-hcsr501/HC-SR501/` 
 1. Restart the executable
 
 ### Raspberry Pi
