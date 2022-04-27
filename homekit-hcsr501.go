@@ -3,7 +3,6 @@ package main
 import (
   "github.com/brutella/hc"
   "github.com/brutella/hc/accessory"
-  "github.com/brutella/hc/characteristic"
   "github.com/brutella/hc/service"
   "github.com/stianeikeland/go-rpio/v4"
 
@@ -40,8 +39,6 @@ func main() {
     10,  // Sensor
   )
   motion := service.NewMotionSensor()
-  motionDetected := characteristic.NewMotionDetected()
-  motion.Service.AddCharacteristic(motionDetected.Characteristic)
   acc.AddService(motion.Service)
   config := hc.Config{
     // Change the default Apple Accessory Pin if you wish
