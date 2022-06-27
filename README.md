@@ -41,7 +41,7 @@ Install this on a Raspberry Pi, or test it on macOS.
 The flag defaults can be overridden by handing them in at runtime:
 
 * `-pin=23` The pin your HC-SR501 sensor is connected to
-* `-dev` This turns on development mode to return a random temperature reading without needing to have a HC-SR501
+* `-dev` This turns on development mode to return a random motion response without needing to have a HC-SR501
 
 e.g. to override the pin run: `go run homekit-hcsr501.go -pin=18` or `./homekit-hcsr501 -pin=18`
 
